@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 juil. 2016 14:22:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Etape" table="ETAPE" schema="ORACLEPROJECT" optimistic-lock="version">
+        <id name="ordre" type="long">
+            <column name="ORDRE" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="circuit" class="beans.Circuit" fetch="select">
+            <column name="ID_CIRCUIT" precision="10" scale="0" />
+        </many-to-one>
+        <property name="nomLieu" type="string">
+            <column name="NOM_LIEU" length="200" />
+        </property>
+        <property name="ville" type="string">
+            <column name="VILLE" length="200" />
+        </property>
+        <property name="pays" type="string">
+            <column name="PAYS" length="200" />
+        </property>
+        <property name="dateEtape" type="date">
+            <column name="DATE_ETAPE" length="7" />
+        </property>
+        <property name="duree" type="java.lang.Long">
+            <column name="DUREE" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

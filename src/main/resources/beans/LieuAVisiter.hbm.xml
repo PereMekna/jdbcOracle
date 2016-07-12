@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 juil. 2016 14:22:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.LieuAVisiter" table="LIEU_A_VISITER" schema="ORACLEPROJECT" optimistic-lock="version">
+        <composite-id name="id" class="beans.LieuAVisiterId">
+            <key-property name="nomLieu" type="string">
+                <column name="NOM_LIEU" length="200" />
+            </key-property>
+            <key-property name="ville" type="string">
+                <column name="VILLE" length="200" />
+            </key-property>
+        </composite-id>
+        <property name="pays" type="string">
+            <column name="PAYS" length="200" />
+        </property>
+        <property name="descriptif" type="string">
+            <column name="DESCRIPTIF" length="200" />
+        </property>
+        <property name="prix" type="java.lang.Long">
+            <column name="PRIX" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

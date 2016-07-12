@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page isELIgnored="false" %>
 
-<c:if test="${empty sessionScope.bettor }">
+<c:if test="${empty sessionScope.client }">
     <div class="row tabs-row">
         <ul class="tabs z-depth-1">
             <li class="tab col s6"><a href="#login">Se connecter</a></li>
@@ -29,7 +29,7 @@
                     <c:remove var="errorLogin" scope="session" />  
                         <form role="form" method="post" action="login">
                             <div class="input-field">
-                                <input type="email" class="input-field" id="email" name="email" />
+                                <input type="text" class="input-field" id="email" name="email" />
                                 <label for="email">Adresse e-mail</label>
                             </div>
                             <div class="input-field">
@@ -54,7 +54,7 @@
                     <c:remove var="errorLogin" scope="session" />          
                     <form role="form" method="post" action="signup">
                         <div class="input-field">
-                            <input type="email" class="form-control" id="email_r" name="email">
+                            <input type="text" class="form-control" id="email_r" name="email">
                             <label class="control-label" for="email_r">Adresse e-mail</label>
                         </div>
                         <div class="input-field">
@@ -76,13 +76,13 @@
         </div>
     </div>
 </c:if>
-<c:if test="${!empty sessionScope.bettor}">
+<c:if test="${!empty sessionScope.client}">
     <div class="card center">
         <div class="card-content">
             <div class="row">
                 <div id="login" class="col s12">
                     <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-                    <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.bettor.getLogin()}
+                    <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.client.getNom()} ${sessionScope.client.getPrenom()}
                         <br /><a href="./logout">Déconnexion</a></p>
                 </div>
             </div>

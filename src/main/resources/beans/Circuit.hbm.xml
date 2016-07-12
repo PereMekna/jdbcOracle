@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 juil. 2016 14:22:34 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="beans.Circuit" table="CIRCUIT" schema="ORACLEPROJECT" optimistic-lock="version">
+        <id name="id" type="long">
+            <column name="ID" precision="10" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="descriptif" type="string">
+            <column name="DESCRIPTIF" length="1000" />
+        </property>
+        <property name="villeDepart" type="string">
+            <column name="VILLE_DEPART" length="200" />
+        </property>
+        <property name="paysDepart" type="string">
+            <column name="PAYS_DEPART" length="200" />
+        </property>
+        <property name="villeArrivee" type="string">
+            <column name="VILLE_ARRIVEE" length="200" />
+        </property>
+        <property name="paysArrivee" type="string">
+            <column name="PAYS_ARRIVEE" length="200" />
+        </property>
+        <property name="dateDepart" type="date">
+            <column name="DATE_DEPART" length="7" />
+        </property>
+        <property name="placesDispo" type="java.lang.Long">
+            <column name="PLACES_DISPO" precision="10" scale="0" />
+        </property>
+        <property name="duree" type="big_decimal">
+            <column name="DUREE" precision="6" scale="4" />
+        </property>
+        <property name="prix" type="java.lang.Long">
+            <column name="PRIX" precision="10" scale="0" />
+        </property>
+        <set name="etapes" table="ETAPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CIRCUIT" precision="10" scale="0" />
+            </key>
+            <one-to-many class="beans.Etape" />
+        </set>
+        <set name="reservations" table="RESERVATION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CIRCUIT" precision="10" scale="0" />
+            </key>
+            <one-to-many class="beans.Reservation" />
+        </set>
+    </class>
+</hibernate-mapping>

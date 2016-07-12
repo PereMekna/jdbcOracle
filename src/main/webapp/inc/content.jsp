@@ -11,7 +11,7 @@
 <div class="card">
     <div class="card-content">
         <span class="card-title">Circuits disponibles</span>
-        <table id="tableCircuit">
+        <table id="tableCircuit" class="display">
             <thead>
                 <tr>
                     <th data-field="id">Id</th>
@@ -23,19 +23,19 @@
             </thead>
 
             <tbody>      
-            <c:forEach var="bettor" items="${bettors}" varStatus="vs">
+            <c:forEach var="circuit" items="${circuits}" varStatus="vs">
                 <tr>
-                    <td>${vs.count}</td>
-                    <td><a href="./bettor?id=${bettor.getIdBettor()}">${bettor.getLogin()}</a></td>
-                    <td>${bettor.getCurrentPositionScore()}</td>
-                    <td></td>
-                    <td></td>
+                    <td>${circuit.getId()}</td>
+                    <td>${circuit.getVilleDepart()} - ${circuit.getPaysDepart()}</td>
+                    <td>${circuit.getVilleArrivee()} - ${circuit.getPaysArrivee()}</td>
+                    <td>${circuit.getDateDepart()}</td>
+                    <td><a href="./detail?id=${circuit.getId()}">Éditer</a> <a href="./delete?id=${circuit.getId()}">Supprimer</a></td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>                                                                     
     </div>
     <div class="card-action">
-        <a href="./index">Voir tous les matchs</a>
+        <a class="js-scrollTo" href="#add">Ajouter un circuit</a>
     </div>
 </div>

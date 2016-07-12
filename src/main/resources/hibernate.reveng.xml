@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-schema="ORACLEPROJECT"/>
+  <table-filter match-name="ETAPE"/>
+  <table-filter match-name="CIRCUIT"/>
+  <table-filter match-name="CLIENT"/>
+  <table-filter match-name="LIEU_A_VISITER"/>
+  <table-filter match-name="RESERVATION"/>
+</hibernate-reverse-engineering>
